@@ -5,6 +5,7 @@ import Product from './product.js'
 const Temp = () => {
     const [searchValue, setSearchValue] = useState("");
     const [productInfo , setProductInfo] = useState([]);
+    
     // console.log(searchValue)
     
     const getProducts = async () => {
@@ -20,15 +21,16 @@ const Temp = () => {
                 let obj={
                     product_name : i.product_name,
                     seller_name : i.seller_name,
+                    seller_email : i.seller_email,
                     price : i.sell_price,
                     qty_available : i.item_count
                 }
                 // console.log(obj);
                 prod.push(obj)
             }
-            console.log(prod);
+            // console.log(prod);
             setProductInfo(prod);
-            console.log(productInfo);
+            // console.log(productInfo);
         } catch (error) {
             console.log(error);
         }
@@ -51,7 +53,8 @@ const Temp = () => {
                 <div className="menu">
                     <p className='hover-effect'>Create</p>
                     <p className='hover-effect' >Sell</p>
-                    <p className='hover-effect' >My Cart</p>
+                    <p className='hover-effect' >My Cart
+                    </p>
                 </div>
             </nav>
             <main>
@@ -67,7 +70,7 @@ const Temp = () => {
 
                 <section className="products">
                  {productInfo.map((cE)=>{
-                    return (<Product productInfo={cE}/>)
+                    return (<Product productInfo={cE} />)
                  })}
                     
 
