@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
-import Product from './product.js'
+import Product from './product.js';
+import Modal from './modal'
 
 const Temp = () => {
     const [searchValue, setSearchValue] = useState("");
     const [productInfo , setProductInfo] = useState([]);
+    const [viewModal, setViewModal] = useState(false);
+    const [cart, setCart] = useState([])
+   
     
     // console.log(searchValue)
     
@@ -39,10 +43,31 @@ const Temp = () => {
     const sellProducts = async()=>{
 
     }
+    const viewCart = async()=>{
+        const user = prompt('Enter User Email', 'guest@abc.com');
+        const url = 'http://localhost:8000/api/v1/user/view-cart/?user_email=' + user;
+        const res = await fetch(url, {
+            method: 'get',
+            mode: 'cors'
+        })
+        let data = await res.json();
+        console.log('1245', data.product_info);
+        let myCart = [];
+        for (let l of data.product_info) {
+            myCart.push(l)
+        }
+        console.log('lkjh', myCart);
+    
+        setCart(myCart);
+     
+        console.log('qwer', cart)
+        setViewModal(true)
+    }
 
     useEffect(() => {
         getProducts()
     }, [])
+
 
     return (
         <>
@@ -53,8 +78,9 @@ const Temp = () => {
                 <div className="menu">
                     <p className='hover-effect'>Create</p>
                     <p className='hover-effect' >Sell</p>
-                    <p className='hover-effect' >My Cart
+                    <p className='hover-effect' onClick={()=>{viewCart()}}>My Cart
                     </p>
+                    {viewModal&&(<Modal closeModal={setViewModal} cart={cart}/>)}
                 </div>
             </nav>
             <main>
