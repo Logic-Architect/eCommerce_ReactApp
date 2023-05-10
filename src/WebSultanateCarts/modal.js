@@ -9,11 +9,15 @@ const Modal = ({ closeModal, cart }) => {
 
     const [index, setIndex] = useState(0);
     let nextProd = () => {
-        setIndex(index + 1);
+        if(index<cart.length-1){
+            setIndex(index + 1);
+        }
         console.log('Now Index Is', index);
     }
     let prevProd = () => {
-        setIndex(index - 1);
+        if(index>0){
+            setIndex(index - 1);
+        }
         console.log('Now Index Is', index);
     }
 
