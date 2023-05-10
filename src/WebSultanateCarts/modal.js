@@ -25,18 +25,20 @@ const Modal = ({ closeModal, cart }) => {
                 <div className="modal-window">
                     <div className="header">
                         <p className="heading">My Cart</p>
-                        <p id="close-modal" onClick={() => closeModal(false)}>X</p>
+                        <p id="close-modal" className='hover-effect' onClick={() => closeModal(false)}>X</p>
                     </div>
                     <div className="main">
-                        <div className="previous" onClick={() => { prevProd() }}>
+                        <div className="previous hover-effect" onClick={() => { prevProd() }}>
+                            <p>
                             &lt;
+                            </p>
                         </div>
                         <div className="productInfo">
                             <div className="modal-image">
                                 <p>Image</p>
                             </div>
                             <div className="details">
-                                <div className="product-name">
+                                <div className="product-name  hover-effect">
                                     {cart[index].product_detail.product_name}
                                 </div>
                                 <div className="seller-name">
@@ -52,12 +54,14 @@ const Modal = ({ closeModal, cart }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="next" onClick={() => { nextProd() }}>
+                        <div className="next hover-effect" onClick={() => { nextProd() }}>
+                            <p>
                             &gt;
+                            </p>
                         </div>
                     </div>
                     <div className="footer">
-                        <p className="close" onClick={() => closeModal(false)}>
+                        <p className="close  hover-effect" onClick={() => closeModal(false)}>
                             Close
                         </p>
                     </div>

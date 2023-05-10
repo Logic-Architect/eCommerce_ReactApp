@@ -55,9 +55,15 @@
 } */
 .next,.previous{
     flex-basis: 5%;
+    height: 60%;
     display: flex;
     justify-content: center;
     cursor: pointer;
+}
+.next p,.previous p{
+  /* color: red; */
+  width: 100%;
+  margin: auto;
 }
 .productInfo{
     flex-basis: 88%;
@@ -99,4 +105,8 @@
 }
 .footer{
     cursor: pointer;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }
