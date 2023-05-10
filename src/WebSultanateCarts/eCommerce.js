@@ -40,8 +40,39 @@ const Temp = () => {
         }
     }
 
-    const sellProducts = async()=>{
-
+    const sell = async ()=>{
+        try {
+            let seller_name  = prompt('Enter Seller Name','guest')
+            let seller_email = prompt('Enter Seller Email','guest@gmail.com')
+            let product_name = prompt('Enter Product Info','guestProduct')
+            let item_count   = prompt('Enter NO of Products TO sell','100')
+            let buy_price    = prompt('Enter Price At which You Buyed','1000')
+            let sell_price   = prompt('Enter the Price At Which You Want To Sell','1500')
+            let discount     = prompt('Discount %','20')
+            const url = 'http://localhost:8000/api/v1/seller/sell-product'
+            const res = await fetch(url, {
+                method: 'post',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    seller_name  : seller_name ,
+                    seller_email : seller_email,
+                    product_name : product_name,
+                    item_count   : item_count,
+                    buy_price    : buy_price,
+                    sell_price   : sell_price,
+                    discount     : discount
+                })
+            });
+            let data = await res.json();
+            console.log(data)
+            alert(data.message)
+        } catch (error) {
+            console.log(error)
+            
+        }
     }
     const viewCart = async()=>{
         const user = prompt('Enter User Email', 'guest@abc.com');
@@ -77,7 +108,7 @@ const Temp = () => {
                 </div>
                 <div className="menu">
                     <p className='hover-effect'>Create</p>
-                    <p className='hover-effect' >Sell</p>
+                    <p className='hover-effect' onClick={()=>{sell()}}>Sell</p>
                     <p className='hover-effect' onClick={()=>{viewCart()}}>My Cart
                     </p>
                     {viewModal&&(<Modal closeModal={setViewModal} cart={cart}/>)}
