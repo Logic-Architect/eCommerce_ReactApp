@@ -39,6 +39,7 @@
     top: 116px;
     right: 300px;
     width: 10px;
+    cursor: pointer;
 }
 .main{
     display: flex;
@@ -56,6 +57,7 @@
     flex-basis: 5%;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 .productInfo{
     flex-basis: 88%;
@@ -68,11 +70,16 @@
 }
 .modal-image{
     display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid white;
     height: 65%;
     width: 75%;
     flex-basis: 67%;
     margin: 2px;
+}
+.modal-image p{
+    font-size: 1.8rem;
 }
 .product-name{
     width: 100%;
@@ -89,4 +96,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+.footer{
+    cursor: pointer;
 }
