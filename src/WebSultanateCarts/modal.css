@@ -102,6 +102,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-top: 15px;
 }
 .footer{
     cursor: pointer;
@@ -109,4 +110,7 @@
     margin: auto;
     display: flex;
     justify-content: center;
+}
+.close{
+    width: 20%;
 }
